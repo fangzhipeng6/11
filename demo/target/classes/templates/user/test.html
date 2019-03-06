@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head th:replace="~{common/header}">
+    <meta charset="UTF-8">
+    <title>用户管理/title>
+	<link rel="stylesheet" href="../../static/css/bootstrap.min.css"/>  
+	<script src="../../static/js/jquery-3.3.1.min.js"></script>
+	<script src="../../static/js/popper.min.js"></script>
+	<script src="../../static/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+<table class="table" style="border: 1px solid #cccfc9;">
+	<thead>
+		<tr class="table-secondary">
+			<th scope="col" width="10%">选择</th>
+			<th scope="col" width="20%">
+			<a th:href="@{/user/test?sort=} + ${#strings.equals(datas.sort, 'name: DESC') ? 'name,ASC' : 'name,DESC'}">用户名</a></th>
+			<th scope="col" width="10%">
+			<a th:href="@{/user/test?sort=} + ${#strings.equals(datas.sort, 'password: DESC') ? 'password,ASC' : 'password,DESC'}">密码</a></th>
+			<th scope="col" width="10%">用户类别</th>
+			<th scope="col" width="10%">创建时间</th>
+			<th scope="col" width="10%">修改时间</th>
+			<th scope="col" width="20%">注释</th>
+			<th scope="col" width="10%">操作</th>
+		</tr>
+	</thead>
+	<tbody th:remove="all-but-first">
+		<tr th:each="data : ${datas.content}" th:object="${data}">
+			<td scope="row"><input type="checkbox" name="ids" th:value="*{id}"/></td>
+			<td><a href="view.html" th:href="@{/user/view/} + *{id}" target="_blank" th:text="*{name}">ghl</a></td>
+			<td th:text="*{password}">1234</td>
+    		<td th:text="*{level}">zhuanjia</td>
+    		<td th:text="*{createtime}">20181230</td>
+    	    <td th:text="*{modifytime}">20181230</td>
+    		<td th:text="*{notes}">bye</td>
+			<td><a th:href="@{/user/edit/} + *{id}">修改</a></td>
+		</tr>
+	</tbody>
+</table>
+</body>
+</html>

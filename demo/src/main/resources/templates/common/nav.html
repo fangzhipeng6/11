@@ -1,0 +1,14 @@
+    <div class="row" th:fragment="nav(module)">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-10">
+            <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #A9C8E7;">
+                <div class="navbar-nav">
+                    <a id="user" class="nav-item nav-link" th:href="@{/user/list}">图书管理</a>
+                </div>
+            </nav>
+        </div>
+        <script>
+            var module = '[[ ${module} ]]';
+            $("#" + module).addClass("active");
+        </script>
+    </div>

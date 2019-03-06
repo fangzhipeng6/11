@@ -1,0 +1,11 @@
+server:
+  port: 8081
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/demo2
+    username: root
+    password: 123456
+  jpa:
+    hibernate:
+      ddl-auto: create
